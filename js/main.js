@@ -1,5 +1,7 @@
 import { criarGraficoPais, criarGraficoGenero, criarGraficoDecada } from "./graficos.js";
 
+let todosFilmes = [];
+
 async function carregarFilmes() {
     try {
         const resposta = await fetch("dados.json");
@@ -56,23 +58,42 @@ function contarPorDecada(filmes) {
     return contagem;
 }
 
+function filtrarPorPais(filmes, pais) {
+    if (pais === "todos") {
+        return filmes;
+    }
+    return filmes.filter(filme => filme.pais === pais);
+}
+
+function prepararDados(filmes) {
+    const porPais = contarPor(filmes, "pais");
+    const porGenero = contarPor(filmes, "genero");
+    const porDecada = contarPorDecada(filmes);
+
+    return {
+        pais: {
+            rotulos: Object.keys(porPais),
+            valores: Object.values(porPais)
+        },
+        genero: {
+            rotulos: Object.keys(porGenero),
+            valores: Object.values(porGenero)
+        },
+        decada: {
+            rotulos: Object.keys(porDecada).map(decada => `${decada}s`),
+            valores: Object.values(porDecada)
+        }
+    };
+}
+
 async function iniciar() {
-    const filmes = await carregarFilmes();
+    todosFilmes = await carregarFilmes();
 
-    const contagemPais = contarPor(filmes, "pais");
-    const rotulosPais = Object.keys(contagemPais);
-    const valoresPais = Object.values(contagemPais);
-    criarGraficoPais(rotulosPais, valoresPais);
+    const dados = prepararDados(todosFilmes);
 
-    const contagemGenero = contarPor(filmes, "genero");
-    const rotulosGenero = Object.keys(contagemGenero);
-    const valoresGenero = Object.values(contagemGenero);
-    criarGraficoGenero(rotulosGenero, valoresGenero);
-
-    const contagemDecada = contarPorDecada(filmes);
-    const rotulosDecada = Object.keys(contagemDecada).map(decada => `${decada}s`);
-    const valoresDecada = Object.values(contagemDecada);
-    criarGraficoDecada(rotulosDecada, valoresDecada);
+    criarGraficoPais(dados.pais.rotulos, dados.pais.valores);
+    criarGraficoGenero(dados.genero.rotulos, dados.genero.valores);
+    criarGraficoDecada(dados.decada.rotulos, dados.decada.valores);
 }
 
 function initNavbar() {

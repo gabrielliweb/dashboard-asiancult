@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AsianCult</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="css/variaveis.css">
   <link rel="stylesheet" href="css/style.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.js"></script>
@@ -17,8 +19,9 @@
   <header class="navbar">
     <nav class="navbar-inner" aria-label="Navegação principal">
       <h1 class="logo"><a href="#">ASIANCULT</a></h1>
-      
-      <button class="hamburger-btn" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="menu-links">
+
+      <button class="hamburger-btn" aria-label="Abrir menu de navegação" aria-expanded="false"
+        aria-controls="menu-links">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
@@ -34,8 +37,14 @@
 
   <main id="content">
     <section id="filters" class="panel">
-      <h2 class="section-title">Filtros</h2>
-      <p class="muted">Em breve: seletor de país e década.</p>
+      <label for="filtro-pais">País</label>
+      <select id="filtro-pais">
+        <option value="todos">Todos</option>
+        <option value="Coreia do Sul">Coreia do Sul</option>
+        <option value="Japão">Japão</option>
+        <option value="China">China</option>
+        <option value="Tailândia">Tailândia</option>
+      </select>
     </section>
 
     <section id="charts" class="panel">
@@ -51,9 +60,9 @@
 
         <article class="card" id="chart-decade">
           <h3>Década</h3>
-            <div class="chart-box">
-              <canvas id="canvas-decade"></canvas>
-        </div>
+          <div class="chart-box">
+            <canvas id="canvas-decade"></canvas>
+          </div>
         </article>
 
         <article class="card" id="chart-genre">
@@ -79,4 +88,5 @@
   </footer>
 
 </body>
+
 </html>
