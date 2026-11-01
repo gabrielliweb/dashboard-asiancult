@@ -1,0 +1,276 @@
+{
+  "filmes": [
+    {
+      "id": 1,
+      "titulo": "Parasite",
+      "pais": "Coreia do Sul",
+      "ano": 2019,
+      "genero": "Suspense",
+      "nota": 8.5
+    },
+    {
+      "id": 2,
+      "titulo": "Spirited Away",
+      "pais": "Japão",
+      "ano": 2001,
+      "genero": "Animação",
+      "nota": 8.5
+    },
+    {
+      "id": 3,
+      "titulo": "Your Name.",
+      "pais": "Japão",
+      "ano": 2016,
+      "genero": "Animação",
+      "nota": 8.5
+    },
+    {
+      "id": 4,
+      "titulo": "Grave of the Fireflies",
+      "pais": "Japão",
+      "ano": 1988,
+      "genero": "Animação",
+      "nota": 8.5
+    },
+    {
+      "id": 5,
+      "titulo": "Seven Samurai",
+      "pais": "Japão",
+      "ano": 1954,
+      "genero": "Ação",
+      "nota": 8.5
+    },
+    {
+      "id": 6,
+      "titulo": "Howl's Moving Castle",
+      "pais": "Japão",
+      "ano": 2004,
+      "genero": "Animação",
+      "nota": 8.4
+    },
+    {
+      "id": 7,
+      "titulo": "A Silent Voice: The Movie",
+      "pais": "Japão",
+      "ano": 2016,
+      "genero": "Animação",
+      "nota": 8.4
+    },
+    {
+      "id": 8,
+      "titulo": "Oldboy",
+      "pais": "Coreia do Sul",
+      "ano": 2003,
+      "genero": "Ação",
+      "nota": 8.3
+    },
+    {
+      "id": 9,
+      "titulo": "Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train",
+      "pais": "Japão",
+      "ano": 2020,
+      "genero": "Animação",
+      "nota": 8.3
+    },
+    {
+      "id": 10,
+      "titulo": "Perfect Blue",
+      "pais": "Japão",
+      "ano": 1998,
+      "genero": "Animação",
+      "nota": 8.3
+    },
+    {
+      "id": 11,
+      "titulo": "Neon Genesis Evangelion: The End of Evangelion",
+      "pais": "Japão",
+      "ano": 1997,
+      "genero": "Animação",
+      "nota": 8.3
+    },
+    {
+      "id": 12,
+      "titulo": "I Want to Eat Your Pancreas",
+      "pais": "Japão",
+      "ano": 2018,
+      "genero": "Animação",
+      "nota": 8.3
+    },
+    {
+      "id": 13,
+      "titulo": "The Handmaiden",
+      "pais": "Coreia do Sul",
+      "ano": 2016,
+      "genero": "Drama",
+      "nota": 8.2
+    },
+    {
+      "id": 15,
+      "titulo": "Wolf Children",
+      "pais": "Japão",
+      "ano": 2012,
+      "genero": "Animação",
+      "nota": 8.2
+    },
+    {
+      "id": 16,
+      "titulo": "My Hero Academia: Heroes Rising",
+      "pais": "Japão",
+      "ano": 2019,
+      "genero": "Animação",
+      "nota": 8.2
+    },
+    {
+      "id": 17,
+      "titulo": "Jujutsu Kaisen 0",
+      "pais": "Japão",
+      "ano": 2021,
+      "genero": "Animação",
+      "nota": 8.2
+    },
+    {
+      "id": 21,
+      "titulo": "Memories of Murder",
+      "pais": "Coreia do Sul",
+      "ano": 2003,
+      "genero": "Crime",
+      "nota": 8.1
+    },
+    {
+      "id": 22,
+      "titulo": "In the Mood for Love",
+      "pais": "China",
+      "ano": 2000,
+      "genero": "Drama",
+      "nota": 8.1
+    },
+    {
+      "id": 23,
+      "titulo": "Chungking Express",
+      "pais": "China",
+      "ano": 1994,
+      "genero": "Drama",
+      "nota": 8.0
+    },
+    {
+      "id": 24,
+      "titulo": "Wish Dragon",
+      "pais": "China",
+      "ano": 2021,
+      "genero": "Animação",
+      "nota": 8.0
+    },
+    {
+      "id": 27,
+      "titulo": "Train to Busan",
+      "pais": "Coreia do Sul",
+      "ano": 2016,
+      "genero": "Terror",
+      "nota": 7.8
+    },
+    {
+      "id": 28,
+      "titulo": "I Saw the Devil",
+      "pais": "Coreia do Sul",
+      "ano": 2010,
+      "genero": "Suspense",
+      "nota": 7.8
+    },
+    {
+      "id": 29,
+      "titulo": "The Chaser",
+      "pais": "Coreia do Sul",
+      "ano": 2008,
+      "genero": "Crime",
+      "nota": 7.8
+    },
+    {
+      "id": 30,
+      "titulo": "3-Iron",
+      "pais": "Coreia do Sul",
+      "ano": 2004,
+      "genero": "Drama",
+      "nota": 7.8
+    },
+    {
+      "id": 31,
+      "titulo": "Ip Man",
+      "pais": "China",
+      "ano": 2008,
+      "genero": "Ação",
+      "nota": 7.8
+    },
+    {
+      "id": 32,
+      "titulo": "Infernal Affairs",
+      "pais": "China",
+      "ano": 2002,
+      "genero": "Crime",
+      "nota": 7.8
+    },
+    {
+      "id": 33,
+      "titulo": "Mother",
+      "pais": "Coreia do Sul",
+      "ano": 2009,
+      "genero": "Crime",
+      "nota": 7.7
+    },
+    {
+      "id": 34,
+      "titulo": "The Man from Nowhere",
+      "pais": "Coreia do Sul",
+      "ano": 2010,
+      "genero": "Ação",
+      "nota": 7.7
+    },
+    {
+      "id": 35,
+      "titulo": "Lady Vengeance",
+      "pais": "Coreia do Sul",
+      "ano": 2005,
+      "genero": "Drama",
+      "nota": 7.6
+    },
+    {
+      "id": 37,
+      "titulo": "Sympathy for Mr. Vengeance",
+      "pais": "Coreia do Sul",
+      "ano": 2002,
+      "genero": "Ação",
+      "nota": 7.5
+    },
+    {
+      "id": 38,
+      "titulo": "Ip Man 2",
+      "pais": "China",
+      "ano": 2010,
+      "genero": "Ação",
+      "nota": 7.5
+    },
+    {
+      "id": 39,
+      "titulo": "Hero",
+      "pais": "China",
+      "ano": 2002,
+      "genero": "Ação",
+      "nota": 7.5
+    },
+    {
+      "id": 40,
+      "titulo": "Shutter",
+      "pais": "Tailândia",
+      "ano": 2004,
+      "genero": "Terror",
+      "nota": 7.2
+    },
+    {
+      "id": 41,
+      "titulo": "Ong-Bak",
+      "pais": "Tailândia",
+      "ano": 2003,
+      "genero": "Ação",
+      "nota": 7.1
+    }
+  ]
+}

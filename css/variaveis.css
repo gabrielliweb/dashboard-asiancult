@@ -1,0 +1,47 @@
+:root {
+    --fundo-1: #0b0c10;
+    --fundo-2: #12131c;
+    --fundo-3: #0a0d18;
+
+    --vidro: rgba(20, 24, 48, 0.55);
+    --vidro-interno: rgba(11, 13, 23, 0.55);
+    --borda-neon: rgba(255, 46, 136, 0.28);
+    --borda-neon-forte: rgba(255, 46, 136, 0.65);
+    --brilho-card: 0 0 24px rgba(255, 46, 136, 0.12);
+
+    --altura-navbar: 64px;
+    --cor-fundo: #0b0d17;
+    --cor-superficie: #141830;
+    --cor-superficie-2: #1d2245;
+    --cor-borda: #2a3060;
+
+    --cor-texto: #eceaf5;
+    --cor-texto-suave: #9a9bbd;
+
+    --cor-rosa: #ff2e88;
+    --cor-ciano: #00e5ff;
+    --cor-ambar: #ffc857;
+    --cor-roxo: #9b5cff;
+    --cor-azul: #4d7cff;
+    --cor-marinho: #182d68;
+
+    --cor-coreia: var(--cor-rosa);
+    --cor-japao: var(--cor-ciano);
+    --cor-china: var(--cor-ambar);
+    --cor-tailandia: var(--cor-roxo);
+
+    --cor-sucesso: #3ddc97;
+    --cor-erro: #ff5c6c;
+
+    --brilho-rosa: 0 0 12px rgba(255, 46, 136, 0.55);
+    --brilho-ciano: 0 0 12px rgba(0, 229, 255, 0.55);
+
+    --fonte-titulo: "Bebas Neue", sans-serif;
+    --fonte-texto: "DM Sans", sans-serif;
+
+    --espaco-1: 0.5rem;
+    --espaco-2: 1rem;
+    --espaco-3: 1.5rem;
+    --espaco-4: 2.5rem;
+    --raio: 12px;
+}

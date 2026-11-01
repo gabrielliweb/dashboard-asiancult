@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AsianCult</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/variaveis.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.js"></script>
+  <script type="module" src="js/main.js"></script>
+</head>
+
+<body>
+  <header class="navbar">
+    <nav class="navbar-inner" aria-label="Navegação principal">
+      <h1 class="logo"><a href="#">ASIANCULT</a></h1>
+      
+      <button class="hamburger-btn" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="menu-links">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <ul class="nav-links" id="menu-links">
+        <li><a href="#filters">Filtros</a></li>
+        <li><a href="#charts">Gráficos</a></li>
+        <li><a href="#crud">Gerenciar (CRUD)</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="content">
+    <section id="filters" class="panel">
+      <h2 class="section-title">Filtros</h2>
+      <p class="muted">Em breve: seletor de país e década.</p>
+    </section>
+
+    <section id="charts" class="panel">
+      <h2 class="section-title">Gráficos</h2>
+
+      <div class="card-charts">
+        <article class="card" id="chart-country">
+          <h3>País</h3>
+          <div class="chart-box">
+            <canvas id="canvas-country"></canvas>
+          </div>
+        </article>
+
+        <article class="card" id="chart-decade">
+          <h3>Década</h3>
+            <div class="chart-box">
+              <canvas id="canvas-decade"></canvas>
+        </div>
+        </article>
+
+        <article class="card" id="chart-genre">
+          <h3>Gênero</h3>
+          <div class="chart-box">
+            <canvas id="canvas-genre"></canvas>
+        </article>
+      </div>
+    </section>
+
+    <section id="crud" class="panel">
+      <h2 class="section-title">Gerenciar (CRUD)</h2>
+      <p class="muted">Em breve: seu diário de filmes assistidos.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>
+      Feito por
+      <a href="https://github.com/gabrielliweb" target="_blank" rel="noopener">@gabrielliweb</a>
+      no GitHub.
+    </p>
+  </footer>
+
+</body>
+</html>
