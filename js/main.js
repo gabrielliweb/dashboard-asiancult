@@ -1,4 +1,4 @@
-import { criarGraficoPais, criarGraficoGenero, criarGraficoDecada } from "./graficos.js";
+import { criarGraficoPais, criarGraficoGenero, criarGraficoDecada, atualizarGraficoDecada, atualizarGraficoGenero } from "./graficos.js";
 
 let todosFilmes = [];
 
@@ -28,11 +28,10 @@ function contarPor(filmes, campo) {
             contagem[valor] = 1;
         }
     }
-    console.log(contagem);
     return contagem;
 }
 
-function contarPorDecada(filmes) {
+function contarPorDecada(filmes, referencia = filmes) {
     const contagem = {};
 
     for (const filme of filmes) {
@@ -45,7 +44,7 @@ function contarPorDecada(filmes) {
         }
     }
 
-    const anos = filmes.map(filme => filme.ano);
+    const anos = referencia.map(filme => filme.ano);
     const primeira = Math.floor(Math.min(...anos) / 10) * 10;
     const ultima = Math.floor(Math.max(...anos) / 10) * 10;
 
@@ -65,10 +64,10 @@ function filtrarPorPais(filmes, pais) {
     return filmes.filter(filme => filme.pais === pais);
 }
 
-function prepararDados(filmes) {
+function prepararDados(filmes, referencia = filmes) {
     const porPais = contarPor(filmes, "pais");
     const porGenero = contarPor(filmes, "genero");
-    const porDecada = contarPorDecada(filmes);
+    const porDecada = contarPorDecada(filmes, referencia);
 
     return {
         pais: {
@@ -94,6 +93,16 @@ async function iniciar() {
     criarGraficoPais(dados.pais.rotulos, dados.pais.valores);
     criarGraficoGenero(dados.genero.rotulos, dados.genero.valores);
     criarGraficoDecada(dados.decada.rotulos, dados.decada.valores);
+
+    const seletor = document.getElementById("filtro-pais");
+
+seletor.addEventListener("change", () => {
+    const filtrados = filtrarPorPais(todosFilmes, seletor.value);
+    const dadosFiltrados = prepararDados(filtrados, todosFilmes);
+
+    atualizarGraficoGenero(dadosFiltrados.genero.rotulos, dadosFiltrados.genero.valores);
+    atualizarGraficoDecada(dadosFiltrados.decada.rotulos, dadosFiltrados.decada.valores);
+});
 }
 
 function initNavbar() {

@@ -6,7 +6,6 @@ function lerCor(nome) {
 
 Chart.defaults.color = lerCor("--cor-texto-suave");
 Chart.defaults.borderColor = lerCor("--cor-borda");
-
 let graficoPais = null;
 
 export function criarGraficoPais(rotulos, valores) {
@@ -35,6 +34,12 @@ export function criarGraficoPais(rotulos, valores) {
 }
 
 let graficoGenero = null;
+
+export function atualizarGraficoGenero(rotulos, valores) {
+    graficoGenero.data.labels = rotulos;
+    graficoGenero.data.datasets[0].data = valores;
+    graficoGenero.update();
+}
 
 export function criarGraficoGenero(rotulos, valores) {
     const contexto = document.getElementById("canvas-genre");
@@ -69,6 +74,12 @@ export function criarGraficoGenero(rotulos, valores) {
     });
 }
 let graficoDecada = null;
+
+export function atualizarGraficoDecada(rotulos, valores) {
+    graficoDecada.data.labels = rotulos;
+    graficoDecada.data.datasets[0].data = valores;
+    graficoDecada.update();
+}
 
 export function criarGraficoDecada(rotulos, valores) {
     const contexto = document.getElementById("canvas-decade");
