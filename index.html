@@ -37,6 +37,7 @@
 
   <main id="content">
     <section id="filters" class="panel">
+      <h2 class="section-title">Filtros</h2>
       <label for="filtro-pais">País</label>
       <select id="filtro-pais">
         <option value="todos">Todos</option>
@@ -75,7 +76,55 @@
 
     <section id="crud" class="panel">
       <h2 class="section-title">Gerenciar (CRUD)</h2>
-      <p class="muted">Em breve: seu diário de filmes assistidos.</p>
+      <p class="section-subtitle">Seu diário de filmes assistidos.</p>
+
+      <form id="form-filme" class="form-filme">
+        <input type="hidden" id="filme-id" name="filme-id">
+
+        <div class="campo">
+          <label for="titulo">Titulo</label>
+          <input type="text" id="titulo" name="titulo" required>
+        </div>
+
+        <div class="campo">
+          <label for="pais">Pais</label>
+          <select id="pais" name="pais" required>
+            <option value="">Selecione...</option>
+            <option value="Coreia do Sul">Coreia do Sul</option>
+            <option value="Japão">Japão</option>
+            <option value="China">China</option>
+            <option value="Tailândia">Tailândia</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="ano">Ano</label>
+          <input type="number" id="ano" name="ano" min="1900" max="2100" required>
+        </div>
+
+        <div class="campo">
+          <label for="nota">Sua nota (0 a 10)</label>
+          <input type="number" id="nota" name="nota" min="0" max="10" step="0.5" required>
+        </div>
+
+        <div class="campo campo-largo">
+          <label for="comentario">Comentário</label>
+          <textarea id="comentario" name="comentario" rows="3"></textarea>
+        </div>
+
+        <div class="acoes-form">
+          <button type="submit" id="btn-salvar">Salvar</button>
+          <button type="button" id="btn-cancelar" hidden>Cancelar edição</button>
+        </div>
+
+        <p id="mensagem" class="mensagem" role="status" aria-live="polite"></p>
+      </form>
+
+      <div id="lista-filmes" class="lista-filmes">
+        <p class="muted">Nenhum filme no diário ainda.</p>
+      </div>
+    </section>
+    </form>
     </section>
   </main>
 
