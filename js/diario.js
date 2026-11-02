@@ -1,4 +1,6 @@
-import { listarFilmes, criarFilme, excluirFilme } from "./crud.js";
+import { listarFilmes, criarFilme, editarFilme, excluirFilme } from "./crud.js";
+
+    let filmesCarregados = [];
     
     function renderizarFilmes(filmes) {
     const lista = document.getElementById("lista-filmes");
@@ -60,32 +62,105 @@ import { listarFilmes, criarFilme, excluirFilme } from "./crud.js";
 
 async function carregarLista() {
     try {
-        const filmes = await listarFilmes();
-        renderizarFilmes(filmes);
+        filmesCarregados = await listarFilmes();
+        renderizarFilmes(filmesCarregados);
     } catch (erro) {
         console.error("Erro ao carregar a lista:", erro);
     }
 }
 
+function mostrarMensagem(texto, ehErro = false) {
+    const mensagem = document.getElementById("mensagem");
+    mensagem.textContent = texto;
+    mensagem.classList.toggle("erro", ehErro);
+}
+
+function lerFormulario() {
+    return {
+        titulo: document.getElementById("titulo").value,
+        pais: document.getElementById("pais").value,
+        ano: Number(document.getElementById("ano").value),
+        nota: Number(document.getElementById("nota").value),
+        comentario: document.getElementById("comentario").value
+    };
+}
+
+function entrarNoModoEdicao(filme) {
+    document.getElementById("filme-id").value = filme.objectId;
+    document.getElementById("titulo").value = filme.titulo ?? "";
+    document.getElementById("pais").value = filme.pais ?? "";
+    document.getElementById("ano").value = filme.ano ?? "";
+    document.getElementById("nota").value = filme.nota ?? "";
+    document.getElementById("comentario").value = filme.comentario ?? "";
+
+    document.getElementById("btn-salvar").textContent = "Salvar alterações";
+    document.getElementById("btn-cancelar").hidden = false;
+
+    document.getElementById("form-filme").scrollIntoView({ behavior: "smooth" });
+}
+
+function sairDoModoEdicao() {
+    document.getElementById("form-filme").reset();
+    document.getElementById("filme-id").value = "";
+    document.getElementById("btn-salvar").textContent = "Salvar";
+    document.getElementById("btn-cancelar").hidden = true;
+}
+
 export function iniciarDiario() {
     carregarLista();
 
+    const formulario = document.getElementById("form-filme");
     const lista = document.getElementById("lista-filmes");
 
-    lista.addEventListener("click", async (evento) => {
-        const botao = evento.target.closest(".btn-excluir");
-        if (!botao) return;
+    formulario.addEventListener("submit", async (evento) => {
+        evento.preventDefault();
 
-        const card = botao.closest(".filme-card");
-        const id = card.dataset.id;
-
-        if (!confirm("Excluir este filme do diário?")) return;
+        const id = document.getElementById("filme-id").value;
+        const filme = lerFormulario();
 
         try {
-            await excluirFilme(id);
+            if (id) {
+                await editarFilme(id, filme);
+                mostrarMensagem("Alterações salvas!");
+            } else {
+                await criarFilme(filme);
+                mostrarMensagem("Filme salvo!");
+            }
+
+            sairDoModoEdicao();
             await carregarLista();
         } catch (erro) {
-            console.error("Erro ao excluir:", erro);
+            console.error("Erro ao salvar:", erro);
+            mostrarMensagem("Não foi possível salvar.", true);
+        }
+    });
+
+    document.getElementById("btn-cancelar").addEventListener("click", () => {
+        sairDoModoEdicao();
+        mostrarMensagem("");
+    });
+
+    lista.addEventListener("click", async (evento) => {
+        const card = evento.target.closest(".filme-card");
+        if (!card) return;
+
+        const id = card.dataset.id;
+
+        if (evento.target.closest(".btn-editar")) {
+            const filme = filmesCarregados.find(f => f.objectId === id);
+            if (filme) entrarNoModoEdicao(filme);
+            return;
+        }
+
+        if (evento.target.closest(".btn-excluir")) {
+            if (!confirm("Excluir este filme do diário?")) return;
+
+            try {
+                await excluirFilme(id);
+                await carregarLista();
+            } catch (erro) {
+                console.error("Erro ao excluir:", erro);
+            }
         }
     });
 }

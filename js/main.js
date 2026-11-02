@@ -1,6 +1,4 @@
 import { criarGraficoPais, criarGraficoGenero, criarGraficoDecada, atualizarGraficoDecada, atualizarGraficoGenero } from "./graficos.js";
-import { listarFilmes } from "./crud.js";
-import { criarFilme } from "./crud.js";
 import { iniciarDiario } from "./diario.js";
 
 let todosFilmes = [];
@@ -88,27 +86,6 @@ function prepararDados(filmes, referencia = filmes) {
     };
 }
 
-const formulario = document.getElementById("form-filme");
-
-formulario.addEventListener("submit", async (evento) => {
-    evento.preventDefault();
-
-    const filmes = {
-        titulo: document.getElementById("titulo").value,
-        pais: document.getElementById("pais").value,
-        ano: Number(document.getElementById("ano").value),
-        nota: Number(document.getElementById("nota").value),
-        comentario: document.getElementById("comentario").value
-    };
-
-    try {
-        await criarFilme(filmes);
-        formulario.reset();
-    } catch (erro) {
-        console.error(erro);
-    }
-});
-
 async function iniciar() {
     todosFilmes = await carregarFilmes();
 
@@ -127,8 +104,6 @@ async function iniciar() {
         atualizarGraficoGenero(dadosFiltrados.genero.rotulos, dadosFiltrados.genero.valores);
         atualizarGraficoDecada(dadosFiltrados.decada.rotulos, dadosFiltrados.decada.valores);
     });
-    const filmesDiario = await listarFilmes();
-    console.table(filmesDiario);
     
     iniciarDiario();
 }

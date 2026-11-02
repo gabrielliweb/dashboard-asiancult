@@ -41,3 +41,17 @@ export async function excluirFilme(id) {
         throw new Error("Falha ao excluir");
     }
 }
+
+export async function editarFilme(id, dados) {
+    const resposta = await fetch(`${URL_BASE}/${id}`, {
+        method: "PUT",
+        headers: CABECALHOS,
+        body: JSON.stringify(dados)
+    });
+
+    if (!resposta.ok) {
+        throw new Error("Falha ao editar");
+    }
+
+    return await resposta.json();
+}
