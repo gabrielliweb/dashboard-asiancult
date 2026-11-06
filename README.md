@@ -1,16 +1,11 @@
-Aqui está a versão final do seu **`README.md`** inteiramente formatada em Markdown, com todas as melhorias visuais aplicadas (tabela estilizada, blocos de código com destaque de sintaxe) e com os dados da autoria e do projeto devidamente preenchidos.
-
----
-
 ```markdown
 # AsianCult 🎬
 
 Dashboard sobre cinema asiático cult (Coreia do Sul, Japão, China e Tailândia) com gráficos interativos e um diário pessoal de filmes assistidos.
 
 Projeto individual **A02 — Dashboard com HTML, CSS e JS Vanilla** · Unicap · Sistemas para Internet  
-**Data de entrega:** 6 de novembro de 2026
 
-- 🌐 **Site publicado:** [PREENCHER: link da Vercel ou Render]
+- 🌐 **Site publicado:** [https://dashboard-asiancult.vercel.app/]
 - 🎥 **Vídeo de apresentação:** [PREENCHER: link ou "entregue junto com o trabalho"]
 
 ---
