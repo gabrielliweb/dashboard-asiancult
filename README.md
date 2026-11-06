@@ -175,5 +175,3 @@ Abra o projeto utilizando um servidor local (ex: extensão **Live Server** no VS
 ## ✒️ Autoria
 
 **Ana Gabrielli** — [@gabrielliweb](https://github.com/gabrielliweb)
-
-```
