@@ -126,7 +126,7 @@ Classe: **`Filme`**
 
 1. **Clonar o repositório:**
 ```bash
-git clone [https://github.com/gabrielliweb/asiancult.git](https://github.com/gabrielliweb/asiancult.git)
+git clone [https://github.com/gabrielliweb/dashboard-asiancult.git](https://github.com/gabrielliweb/dashboard-asiancult.git)
 
 ```
 
