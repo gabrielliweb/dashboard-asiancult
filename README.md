@@ -1,4 +1,3 @@
-```markdown
 # AsianCult 🎬
 
 Dashboard sobre cinema asiático cult (Coreia do Sul, Japão, China e Tailândia) com gráficos interativos e um diário pessoal de filmes assistidos.
