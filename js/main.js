@@ -104,8 +104,9 @@ async function iniciar() {
         atualizarGraficoGenero(dadosFiltrados.genero.rotulos, dadosFiltrados.genero.valores);
         atualizarGraficoDecada(dadosFiltrados.decada.rotulos, dadosFiltrados.decada.valores);
     });
-    
+
     iniciarDiario();
+
 }
 
 function initNavbar() {

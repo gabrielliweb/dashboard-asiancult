@@ -46,6 +46,7 @@
         <option value="China">China</option>
         <option value="Tailândia">Tailândia</option>
       </select>
+      <p class="muted">Este filtro modifica apenas os dois últimos gráficos.</p>
     </section>
 
     <section id="charts" class="panel">
@@ -78,8 +79,18 @@
       <h2 class="section-title">Gerenciar (CRUD)</h2>
       <p class="section-subtitle">Seu diário de filmes assistidos.</p>
 
+      <div class="busca-tmdb">
+        <label for="busca-tmdb">Buscar filme no TMDB</label>
+        <div class="busca-linha">
+          <input type="search" id="busca-tmdb" placeholder="Ex.: Oldboy">
+          <button type="button" id="btn-buscar">Buscar</button>
+        </div>
+        <div id="resultados-tmdb" class="resultados-tmdb"></div>
+      </div>
+
       <form id="form-filme" class="form-filme">
         <input type="hidden" id="filme-id" name="filme-id">
+        <input type="hidden" id="poster" name="poster">
 
         <div class="campo">
           <label for="titulo">Titulo</label>
@@ -133,6 +144,7 @@
       Feito por
       <a href="https://github.com/gabrielliweb" target="_blank" rel="noopener">@gabrielliweb</a>
       no GitHub.
+      <p class="muted">This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
     </p>
   </footer>
 

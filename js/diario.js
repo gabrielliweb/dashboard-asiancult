@@ -1,8 +1,33 @@
 import { listarFilmes, criarFilme, editarFilme, excluirFilme } from "./crud.js";
+import { buscarFilmesTmdb } from "./tmdb.js";
 
-    let filmesCarregados = [];
-    
-    function renderizarFilmes(filmes) {
+let filmesCarregados = [];
+
+
+function mostrarResultados(filmes) {
+    const area = document.getElementById("resultados-tmdb");
+    area.innerHTML = "";
+
+    if (filmes.length === 0) {
+        area.textContent = "Nada encontrado.";
+        return;
+    }
+
+    for (const filme of filmes.slice(0, 5)) {
+        const botao = document.createElement("button");
+        botao.type = "button";
+        botao.className = "resultado";
+        botao.textContent = `${filme.title} (${filme.release_date?.slice(0, 4) ?? "?"})`;
+        botao.addEventListener("click", () => {
+            preencherFormulario(filme);
+            area.innerHTML = "";
+        });
+
+        area.appendChild(botao);
+    }
+}
+
+function renderizarFilmes(filmes) {
     const lista = document.getElementById("lista-filmes");
     lista.innerHTML = "";
 
@@ -21,6 +46,18 @@ import { listarFilmes, criarFilme, editarFilme, excluirFilme } from "./crud.js";
 
         const titulo = document.createElement("h3");
         titulo.textContent = filme.titulo;
+
+        if (filme.poster) {
+            
+            card.classList.add("com-poster");
+            
+            const poster = document.createElement("img");
+            poster.className = "filme-poster";
+            poster.src = filme.poster;
+            poster.alt = `Pôster de ${filme.titulo}`;
+            poster.loading = "lazy";
+            card.appendChild(poster);
+        }
 
         const meta = document.createElement("p");
         meta.className = "filme-meta";
@@ -81,13 +118,15 @@ function lerFormulario() {
         pais: document.getElementById("pais").value,
         ano: Number(document.getElementById("ano").value),
         nota: Number(document.getElementById("nota").value),
-        comentario: document.getElementById("comentario").value
+        comentario: document.getElementById("comentario").value,
+        poster: document.getElementById("poster").value
     };
 }
 
 function entrarNoModoEdicao(filme) {
     document.getElementById("filme-id").value = filme.objectId;
     document.getElementById("titulo").value = filme.titulo ?? "";
+    document.getElementById("poster").value = filme.poster ?? "";
     document.getElementById("pais").value = filme.pais ?? "";
     document.getElementById("ano").value = filme.ano ?? "";
     document.getElementById("nota").value = filme.nota ?? "";
@@ -101,6 +140,7 @@ function entrarNoModoEdicao(filme) {
 
 function sairDoModoEdicao() {
     document.getElementById("form-filme").reset();
+    document.getElementById("poster").value = "";
     document.getElementById("filme-id").value = "";
     document.getElementById("btn-salvar").textContent = "Salvar";
     document.getElementById("btn-cancelar").hidden = true;
@@ -163,4 +203,33 @@ export function iniciarDiario() {
             }
         }
     });
+
+    document.getElementById("btn-buscar").addEventListener("click", async () => {
+        const termo = document.getElementById("busca-tmdb").value.trim();
+        if (!termo) return;
+
+        try {
+            const resultados = await buscarFilmesTmdb(termo);
+            mostrarResultados(resultados);
+        } catch (erro) {
+            console.error("Erro na busca:", erro);
+        }
+    });
+}
+const PAIS_POR_IDIOMA = {
+    ko: "Coreia do Sul",
+    ja: "Japão",
+    zh: "China",
+    cn: "China",
+    th: "Tailândia"
+};
+function preencherFormulario(filme) {
+    console.log(filme);
+    document.getElementById("titulo").value = filme.title;
+    document.getElementById("ano").value = filme.release_date?.slice(0, 4) ?? "";
+    document.getElementById("pais").value = PAIS_POR_IDIOMA[filme.original_language] ?? "";
+
+    document.getElementById("poster").value = filme.poster_path
+        ? `https://image.tmdb.org/t/p/w500${filme.poster_path}`
+        : "";
 }
