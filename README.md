@@ -177,5 +177,3 @@ Abra o projeto utilizando um servidor local (ex: extensão **Live Server** no VS
 **Ana Gabrielli** — [@gabrielliweb](https://github.com/gabrielliweb)
 
 ```
-
-```
