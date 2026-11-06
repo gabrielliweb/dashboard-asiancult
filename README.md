@@ -10,7 +10,7 @@ Dashboard sobre cinema asiático (Coreia do Sul, Japão, China e Tailândia) com
 
 Projeto **A02 — Dashboard com HTML, CSS e JS** · Unicap · Sistemas para Internet  
 
-- 🌐 **Site publicado:** []
+- 🌐 **Site publicado:** [https://dashboard-asiancult.vercel.app]
 
 ---
 
